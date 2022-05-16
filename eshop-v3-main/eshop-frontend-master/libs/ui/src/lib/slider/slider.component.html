@@ -1,0 +1,16 @@
+<p-carousel [value]="brands" styleClass="custom-carousel" [numVisible]="4" [numScroll]="4" [circular]="true"
+  [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="header">
+            <div class="c-title">
+                <h2>I nostri brand</h2>
+            </div>
+        </ng-template>
+        <ng-template let-brand pTemplate="item">
+            <div class="brands">
+                <div class="brands-content" >
+                    <img [src]="brand.image" alt="" (click)="navigateToBrand(brand.id, brand.name)">                   
+                </div>
+            </div>
+        </ng-template>
+</p-carousel>
+

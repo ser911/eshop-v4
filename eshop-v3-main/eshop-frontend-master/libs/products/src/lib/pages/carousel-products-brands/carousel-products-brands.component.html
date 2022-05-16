@@ -1,0 +1,70 @@
+<div class="products-page">
+    <div class="grid">
+        <div class="men-women-filter md:col-3 lg:col-12">
+           <div class="p-field-checkbox men">
+
+               <p-checkbox [disabled]="m" id="men" (onChange)="selectMenFromBrandAllProds($event)" [binary]=binaryProp></p-checkbox>
+              
+
+               <label for="men">Moda uomo</label>
+
+           </div>
+           <div class="p-field-checkbox women">
+               
+              <p-checkbox [disabled]="w" id="women" (onChange)="selectWomenFromBrandAllProds($event)" [binary]=binaryProp></p-checkbox>
+              <label for="women">Moda donna</label>
+
+        </div>
+
+      </div>
+       <div class="categories-filter md:col-3 lg:col-2 xl:col-3">
+
+         <div *ngIf="selected_1 || selected_2">
+                 <h4>Categorie</h4>
+ 
+                 <div class="p-field-checkbox" *ngFor="let category of categories">
+                   <p-checkbox id="{{category.name}}" [(ngModel)]="category.checked" [binary]=binaryProp [inputId]="category.id!"
+                     (onChange)="categoryFilter($event)"></p-checkbox>
+                   <label for="{{category.id}}">{{category.name}}</label>
+           
+                 </div>
+             </div>
+       </div>
+
+  
+  
+
+       <div class="sm:col-12 md:col-9 lg:col-10 xl:col-9">
+        <div class="grid">
+          <div class="item-container sm:col-6 md:col-6 lg:col-3 xl:col-3" *ngFor="let p of products">
+  
+            <eshop-frontend-product-item [product]="p"></eshop-frontend-product-item>
+          </div>
+  
+        </div>
+      </div> 
+<!-- 
+        <div class="sm:col-12 md:col-9 lg:col-10 xl:col-9" *ngIf="selected_1">
+        <div class="grid" *ngIf="products">
+          <div class="item-container sm:col-6 md:col-6 lg:col-3 xl:col-3" *ngFor="let m of m_filteredProducts">
+
+  
+
+            <eshop-frontend-product-item [product]="m"></eshop-frontend-product-item>
+          </div>
+  
+        </div>
+      </div> 
+
+      <div class="sm:col-12 md:col-9 lg:col-10 xl:col-9" *ngIf="selected_2">
+        <div class="grid" *ngIf="products">
+          <div class="item-container sm:col-6 md:col-6 lg:col-3 xl:col-3" *ngFor="let w of w_filteredProducts">
+  
+            <eshop-frontend-product-item [product]="w"></eshop-frontend-product-item>
+          </div>
+  
+        </div>
+      </div>    -->
+
+    </div>
+  </div> 
